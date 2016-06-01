@@ -5,6 +5,7 @@
  */
 package service;
 
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -15,7 +16,10 @@ import javax.ws.rs.POST;
 import static javax.ws.rs.HttpMethod.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import models.entities.Employee;
 
 /**
@@ -23,7 +27,7 @@ import models.entities.Employee;
  *
  * @author Alisson
  */
-@Path("employee")
+@Path("employees")
 public class EmployeeService {
 
     @Context
@@ -40,21 +44,37 @@ public class EmployeeService {
      * @return an instance of models.entities.Employee
      */
     @GET
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Employee getJson(String id) {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    public Response getSpecificEmployee(@PathParam("id") int id) {
+        Employee e = new Employee();
+        e.setId(id);
+//        System.out.println(e.getEmployee().getNome());
+        
+        return Response
+                .status(Response.Status.OK)
+                .header("Access-Control-Allow-Origin", "*")
+                .entity(e.getEmployee())
+                .build();
+        
     }
     
-     /**
+    /**
      * Retrieves representation of an instance of service.EmployeeService
      * @return an instance of models.entities.Employee
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Employee getJson() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    public Response getAllEmployee() {
+        Employee e = new Employee();
+        GenericEntity<List<Employee>> list = new GenericEntity<List<Employee>>(e.getAll()) {};
+        
+        return Response
+                .status(Response.Status.OK)
+                .header("Access-Control-Allow-Origin", "*")
+                .entity(list)
+                .build();
+        
     }
     
      /**
@@ -62,10 +82,12 @@ public class EmployeeService {
      * @return an instance of models.entities.Employee
      */
     @DELETE
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public void deleteJson() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    public void deleteJson(@PathParam("id") int id) {
+        Employee e = new Employee();
+        e.setId(id);
+        e.delete();
     }
     
     
@@ -75,9 +97,8 @@ public class EmployeeService {
      */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public void postJson() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    public void insert(Employee e) {
+        e.add();
     }
 
     /**
@@ -85,7 +106,10 @@ public class EmployeeService {
      * @param content representation for the resource
      */
     @PUT
+    @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(Employee content) {
+    public void update(Employee e, @PathParam("id") int id) {
+        e.setId(id);
+        e.update();
     }
 }

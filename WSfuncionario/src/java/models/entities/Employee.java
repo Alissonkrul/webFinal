@@ -28,18 +28,13 @@ public class Employee {
     @GeneratedValue
     private int id;
 
-
     public Employee() {
     }
 
     public void add() {
-        if (!(EmployeeDAO.read(this.getCpf()) == null)) {
-            EmployeeDAO.update(this);
-        } else {
-            EmployeeDAO.create(this);
-        }
+        EmployeeDAO.create(this);
     }
-    
+
     private String cpf;
     private String nome;
     private String endereco;
@@ -62,10 +57,10 @@ public class Employee {
     public static List<Employee> getAll() {
         return EmployeeDAO.readAll();
     }
-    
-    public Employee getEmployee(){
-       Employee employee = EmployeeDAO.read(this.getCpf());
-        if ( employee!=null) {
+
+    public Employee getEmployee() {
+        Employee employee = EmployeeDAO.read(this);
+        if (employee != null) {
             return employee;
         } else {
             return null;
@@ -127,5 +122,5 @@ public class Employee {
     public void setCompanyId(Integer companyId) {
         this.companyId = companyId;
     }
-    
+
 }

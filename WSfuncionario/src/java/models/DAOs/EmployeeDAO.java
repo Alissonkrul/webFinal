@@ -19,12 +19,10 @@ import static utils.HibernateUtils.getSessionFactory;
 public class EmployeeDAO {
 
 
-    public static Employee read(String cpf) {
+    public static Employee read(Employee employee) {
         Session session = getSessionFactory().openSession();
-        Employee employee = new Employee();
-        employee.setCpf(cpf);
-        Query query = session.createQuery("from Employee where cpf = :cpf");
-        query.setParameter("cpf", employee.getCpf());
+        Query query = session.createQuery("from Employee where id = :id");
+        query.setParameter("id", employee.getId());
         employee = (Employee) query.uniqueResult();
         session.close();
         return employee;
