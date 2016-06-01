@@ -19,6 +19,18 @@ import static utils.HibernateUtils.getSessionFactory;
  */
 public class CompanyDAO {
 
+    public static Company read(Company compnay) {
+        Session session = null;
+        try {
+            session = getSessionFactory().openSession();
+            compnay = (Company) session.get(Company.class, compnay.getId());
+            return compnay;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
 
     public static void update(Company company) {
         Transaction transaction = null;
@@ -92,7 +104,7 @@ public class CompanyDAO {
         }
         return list;
     }
-        
+
     public static void delete(Company company) {
         Transaction transaction = null;
         Session session = null;

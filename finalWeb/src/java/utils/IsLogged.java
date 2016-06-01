@@ -28,14 +28,6 @@ import models.entities.User;
  * @author Alisson
  */
 @WebFilter(filterName = "IsLogged", urlPatterns = {
-    "/addUser.jsp",
-    "/editUser.jsp",
-    "/admins.jsp",
-    "/addDebtor.jsp",
-    "/debtors.jsp",
-    "/editDeptor.jsp",
-    "/companies.jsp",
-    "/company.jsp"
    }, dispatcherTypes = {DispatcherType.REQUEST, DispatcherType.FORWARD})
 
 public class IsLogged implements Filter {

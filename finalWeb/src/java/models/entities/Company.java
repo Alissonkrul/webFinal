@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import models.DAOs.CompanyDAO;
@@ -35,8 +36,15 @@ public class Company {
     private String razaoSocial;
     private String endereco;
     private String email;
-    private List<Integer> employees;
+    
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "Id", nullable = false)
+    private List<EmployeeId> employees;
 
+    public Company getCompany(){
+        return CompanyDAO.read(this);
+    }
+    
     public String getCnpj() {
         return cnpj;
     }
@@ -69,11 +77,11 @@ public class Company {
         this.email = email;
     }
 
-    public List<Integer> getEmployees() {
+    public List<EmployeeId> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(List<Integer> employees) {
+    public void setEmployees(List<EmployeeId> employees) {
         this.employees = employees;
     }
     

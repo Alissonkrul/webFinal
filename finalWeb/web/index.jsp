@@ -25,7 +25,7 @@
                 <div class="form-group login-form">
                     <div class="input-group login-input">
                         <span class="login-span input-group-addon">Email</span>
-                        <input type="email" class="form-control" placeholder="Digite seu login." name="email" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="Digite seu login." name="login" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group login-input">
                         <span class="login-span input-group-addon">Senha</span>

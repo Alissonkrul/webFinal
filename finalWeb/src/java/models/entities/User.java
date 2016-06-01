@@ -19,21 +19,19 @@ import models.DAOs.UserDAO;
  * @author Alisson
  */
 @Entity
-@Table(name = "user")
+@Table(name = "USER_TB")
 public class User {
 
     @Id
     @GeneratedValue
-    @Column(name = "USER_ID")
     private int id;
     
-    @Column(name = "PASSWORD")
+    
     private String password;
     
-    @Column(name="name")
+   
     private String nome;
     
-    @Column(name = "LOGIN", unique = true)
     private String login;
 
     public User() {
@@ -114,4 +112,5 @@ public class User {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
 }

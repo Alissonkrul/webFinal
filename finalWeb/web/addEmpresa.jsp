@@ -15,14 +15,13 @@
         <link rel="stylesheet" type="text/css" href="main.css">
         <script src="bootstrap-3.3.6-dist/jquery-2.2.4.min.js"></script>
         <script type="text/javascript" src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-        <title>DOR</title>
+        <title>WEB</title>
     </head>
     <body>
         <!-- Header -->
         <div class="header">
-            <span class="title">DOR <small>- Devedores Originalmente Regulares</small></span>
-            <span class="log-out"><a href="LogoutProcess"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></span>
-            <span class="welcome">Bem vindo, Razer!</span>
+            <span class="title">WEB <small>- WEB Final</small></span>
+            <span class="log-out"><a href="LogoutProcess"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></span> 
         </div>
         <!-- Navbar -->
         <nav class="navbar navbar-default menu">
@@ -41,9 +40,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="debtors.jsp">Devedores</a></li>
-                        <li><a href="companies.jsp">Instituições</a></li>
-                        <li><a href="admins.jsp">Administradores</span></a></li>
+                        <li><a href="empresas.jsp">Empresas</a></li>
+                        <li><a href="funcionarios.jsp">Funcionarios</a></li>     
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -59,36 +57,37 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>   Editar Administrador</a>
+                    <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>   Inserir Devedor</a>
                 </div>
             </div><!-- /.container-fluid -->
         </nav>
         <!-- Form -->
         <div class="form">
-            <form action="LoginProcess" method="POST" role="form">
+            <form action="EmpresaController?type=add" method="POST" role="form">
                 <div class="form-group">
                     <label>Nome:</label>
                     <input type="text" class="form-control" placeholder="Nome" name="name"/>
                 </div>
                 <div class="form-group">
-                    <label>Email:</label>
-                    <input type="email" class="form-control" placeholder="Email" name="email"/>
+                    <label>Cnpj</label>
+                    <input type="text" class="form-control" placeholder="Cnpj" name="cnpj"/>
                 </div>
-                <div class="form-group">
-                    <label>Senha Antiga:</label>
-                    <input type="password" class="form-control" placeholder="Senha" name="oldPassword"/>
+                 <div class="form-group">
+                    <label>Endereco</label>
+                    <input type="text" class="form-control" placeholder="Endereco" name="endereco"/>
                 </div>
-                <div class="form-group">
-                    <label>Nova Senha:</label>
-                    <input type="password" class="form-control" placeholder="Senha" name="newPassword"/>
+                 <div class="form-group">
+                    <label>Razao Social</label>
+                    <input type="text" class="form-control" placeholder="RazaoSocial" name="razaoSocial"/>
                 </div>
-                <div class="form-group">
-                    <label>Confirmar Senha:</label>
-                    <input type="password" class="form-control" placeholder="Confirmar senha" name="passwordConfirmation"/>
+                 <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control" placeholder="Email" name="email"/>
                 </div>
+               
                 <div>
-                    <button type="submit" class="btn btn-info">Salvar</button>
-                    <a href="admins.jsp"><button type="button" class="btn btn-danger">Cancelar</button></a>
+                    <button type="submit" class="btn btn-info">Adicionar</button>
+                    <a href="portal.jsp"><button type="button" class="btn btn-danger">Cancelar</button></a>
                 </div>
             </form>
         </div>

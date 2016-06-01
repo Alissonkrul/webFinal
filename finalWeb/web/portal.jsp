@@ -1,6 +1,6 @@
 <%-- 
-    Document   : addCompany
-    Created on : 01/06/2016, 12:45:12
+    Document   : portal.jsp
+    Created on : 01/06/2016, 14:34:20
     Author     : Alisson
 --%>
 
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>CRUD company</title>
+        <title>JSP Page</title>
     </head>
     <body>
         <h1>Hello World!</h1>

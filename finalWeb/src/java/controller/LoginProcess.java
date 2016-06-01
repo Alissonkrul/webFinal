@@ -36,19 +36,19 @@ public class LoginProcess extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println((String)request.getParameter("email"));
+            out.println((String)request.getParameter("login"));
             out.println((String)request.getParameter("password"));
             
             //Get the request data
             String password = (String)request.getParameter("password");
-            String email = (String)request.getParameter("email");
+            String login = (String)request.getParameter("login");
             //Validate request data
-            if(!password.isEmpty()&& !email.isEmpty()){
+            if(!password.isEmpty()&& !login.isEmpty()){
             
             }
             //Try found the user
             User user = new User();
-            user.setLogin(email);
+            user.setLogin(login);
             user.setPassword(password);
             user = user.auth();
             
@@ -59,7 +59,8 @@ public class LoginProcess extends HttpServlet {
                 session.setAttribute("user", user);
                 
                 //Redirect to debtors
-                request.getRequestDispatcher("ListDebtors").forward(request, response);
+                 response.sendRedirect("EmpresaController?type=list");
+                request.getRequestDispatcher("portal.jsp").forward(request, response);
             }else{
                 //Redirect to login
                 response.sendRedirect("index.jsp");
