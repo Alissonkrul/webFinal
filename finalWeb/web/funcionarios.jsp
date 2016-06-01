@@ -83,7 +83,7 @@
             <tbody>
                 <c:set var="index" value="${1}" scope="page"/>
                 <c:set var="funcionarios" scope="session" value="${listFuncionarios}"/>
-                <c:forEach items="${listFuncionarios}" var="funcionario">
+                <c:forEach items="${list}" var="funcionario">
 
                     <tr>
                         <td><c:out value="${index}" /></td>

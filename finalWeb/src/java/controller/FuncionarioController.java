@@ -97,7 +97,7 @@ public class FuncionarioController extends HttpServlet {
                     list.add(e1);
                 }
                 
-                request.setAttribute("listFuncionarios", list);
+                request.setAttribute("list", list);
                 
                 //Return to List
                 request.getRequestDispatcher("empresas.jsp").forward(request, response);
